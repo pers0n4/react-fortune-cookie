@@ -3,12 +3,12 @@ import "./Cookie.css";
 
 import FortuneCookie from "./fortune-cookie.svg";
 
-const Cookie = () => {
+const Cookie = (props) => {
   const [isJumping, setIsJumping] = useState(false);
 
   const handleClick = () => {
-    console.log("cookie");
     if (!isJumping) {
+      props.onClick();
       setIsJumping(true);
       setTimeout(() => {
         setIsJumping(false);
