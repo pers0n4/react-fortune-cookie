@@ -11,6 +11,7 @@ import Typography from "@material-ui/core/Typography";
 
 import Footer from "./Footer";
 import Cookie from "./Cookie";
+import styles from "./Bubble.module.css";
 
 const theme = createMuiTheme();
 
@@ -28,6 +29,17 @@ const useStyles = makeStyles({
     alignItems: "center",
   },
 });
+
+const Bubble = ({ children }) => {
+  if (!children) {
+    return null;
+  }
+  return (
+    <div className={styles.bubble}>
+      <Typography>{children}</Typography>
+    </div>
+  );
+};
 
 const App = () => {
   const classes = useStyles();
@@ -53,7 +65,7 @@ const App = () => {
       <div className={classes.root}>
         <Container component="main" maxWidth="md" className={classes.main}>
           <Cookie onClick={handleCookieClick} />
-          <Typography>{message}</Typography>
+          <Bubble>{message}</Bubble>
         </Container>
         <Footer />
       </div>
